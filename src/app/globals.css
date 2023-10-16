@@ -1,0 +1,36 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+body{
+    overflow-x: hidden;
+    background: rgb(235, 235, 235);
+}
+
+input, select, textarea{
+    padding: 5px;
+    border-radius: 7px;
+    border: solid 0.2px;
+    text-align: end;
+}
+
+button{
+    background-color: rgb(32, 235, 123);
+    width: fit-content;
+    border-radius: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    transition: all;
+    transition: 0.1s;
+}
+button:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.error-message{
+    color: red;
+}
+.container__1000{
+    @apply bg-white md:max-w-[1000px] max-w-[100%] p-2 rounded-md shadow-lg mx-auto
+}
