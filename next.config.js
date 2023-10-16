@@ -3,7 +3,8 @@ const nextConfig = {
     images:{
         domains: [
             "127.0.0.1",
-            "i.ibb.co"
+            "i.ibb.co",
+            "https://cookiylearning.pythonanywhere.com/"
         ]
     }
 }
