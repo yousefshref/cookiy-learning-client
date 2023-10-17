@@ -178,7 +178,7 @@ const CourseContext = ({children}) => {
     })
   }
   useEffect(() => {
-    path.includes(`course/${path.split('/')[2]}/watch`) ? getReviews() : null
+    path.includes(`course/${path.split('/')[2]}/watch`) | path.includes(`course/${path.split('/')[2]}`) ? getReviews() : null
   }, [path.length])
 
 

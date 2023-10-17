@@ -14,6 +14,7 @@ import SwiperButtonNext from '@/components/SwiperButtonNext'
 import SwiperButtonPrev from '@/components/SwiperButtonPrev'
 import { CourseContextProvider } from '@/context/CourseContext'
 import { EnrollmentContextProvider } from '@/context/EnrollmentContext'
+import CourseReviewComponent from '@/components/CourseReviewComponent'
 
 
 const page = () => {
@@ -102,38 +103,25 @@ const page = () => {
     }, [authContext?.user?.length])
 
 
-    const swiper_ref = useRef()
-    
-    const handlePrev = useCallback(() => {
-        if (!swiper_ref.current) return;
-        swiper_ref.current.swiper.slidePrev();
-    }, [])
-
-    const handleNext = useCallback(() => {
-        if (!swiper_ref.current) return;
-        swiper_ref.current.swiper.slideNext();
-    }, [])
-
-
     return (
         authContext?.user?.user_details?.is_teacher ? (
             <div>
                 <Header />
                 <br />
-                <div className='create_course_container text-end px-3 w-[96%] mx-auto md:w-[600px] bg-white p-5 rounded-sm shadow-xl'>
+                <div className='create_course_container text-start px-3 w-[96%] mx-auto md:w-[600px] bg-white p-5 rounded-sm shadow-xl'>
                     <h1 className='text-center text-3xl font-bold'>يمكنك التعديل علي الكورس</h1>
                     <hr className='my-5' />
                     <form className='flex flex-col gap-5'>
                         <div className='flex flex-col gap-2'>
                             <div className='mx-auto'>
-                                <Image src={server + thumbnail} alt='' width={300} height={300} className='w-[300px] h-[180px]' />
+                                <Image src={server + thumbnail} alt='' width={300} height={300} className='w-[300px] h-[300px]' />
                             </div>
-                            <label className='flex flex-row-reverse gap-3 flex-wrap'>
+                            <label className='flex flex-row gap-3 flex-wrap'>
                                 <div>
                                     قم بتغيير الصورة المصغرة
                                 </div>
                                 <div className='text-red-700'>
-                                    ( 1920 x 1080 يفضل ان تكون )
+                                    ( يفضل ان تكون 500 * 500 )
                                 </div>
                             </label>
                             <input onChange={(e) => setthumbnail(e.target.files[0])} type='file' />
@@ -210,7 +198,6 @@ const page = () => {
                                 </div>
                                 <div className='text-center bg-white rounded-md shadow-md p-2'>
                                     <Swiper
-                                    ref={swiper_ref}
                                     slidesPerView={1}
                                     className='relative'
                                     >
@@ -241,13 +228,13 @@ const page = () => {
                                         
                                     </Swiper>
                                     <div>
-                                        <strong>{e?.title}</strong>
+                                        <strong className='text-3xl my-2 flex flex-col'>{e?.title}</strong>
                                         <hr />
-                                        <div className='flex flex-col gap-0 text-end border border-black p-2 rounded-md'>{e?.description.split('\r\n').map((e) => <p key={e+Math.random()}>{e}</p>)}</div>
+                                        <div className='flex flex-col gap-0 text-start border border-black p-2 rounded-md'>{e?.description.split('\r\n').map((e) => <p key={e+Math.random()}>{e}</p>)}</div>
                                     </div>
                                     <br />
                                     <div>
-                                        <strong className='text-green-600'>EGP {e?.price}</strong>
+                                        <strong className='text-green-600 my-5 flex flex-col text-lg'>EGP {e?.price}</strong>
                                     </div>
                                     
                                     {
@@ -265,13 +252,13 @@ const page = () => {
                                     </div>
                                 </div>
                                 <br />
-                                <div className='text-end bg-white rounded-md shadow-md p-2'>
+                                <div className='bg-white rounded-md shadow-md p-2'>
                                     <strong>عن المدرس</strong>
                                     <hr className='my-3' />
                                     <div className='mx-auto w-fit'>
                                         <Rating readOnly />
                                     </div>
-                                    <Link href={`/teacher/${e?.teacher}`} className='teacher_info cursor-pointer flex flex-row-reverse gap-2 border p-2 rounded-lg bg-slate-200 transition-all
+                                    <Link href={`/teacher/${e?.teacher}`} className='teacher_info cursor-pointer flex flex-row gap-2 border p-2 rounded-lg bg-slate-200 transition-all
                                     hover:bg-neutral-800 hover:text-white
                                     '>
                                         <div className='my-auto'>
@@ -282,6 +269,20 @@ const page = () => {
                                             <small>{e?.teacher_profile?.bio ? e?.teacher_profile?.bio : null}</small>
                                         </div>
                                     </Link>
+                                </div>
+
+                                <br />
+
+                                <div className='container__1000 flex flex-col gap-2 some_reviews'>
+                                    <strong>بعض التقيممات</strong>
+                                    <hr />
+                                    {
+                                        courseContext?.reviews?.map((e) => (
+                                            <div key={e?.id}>
+                                                <CourseReviewComponent e={e} />
+                                            </div>
+                                        ))
+                                    }
                                 </div>
                             </div>
                         ))

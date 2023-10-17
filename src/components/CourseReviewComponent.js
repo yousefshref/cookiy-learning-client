@@ -6,10 +6,10 @@ const CourseReviewComponent = ({ e }) => {
     return (
         <div>
             <div>
-                <Rating readOnly value={e?.review} />
+                <Rating dir='ltr' readOnly value={e?.review} />
             </div>
             <div className='review_container border border-sky-200 p-2 rounded-md'>
-                <div className='flex flex-row-reverse gap-3'>
+                <div className='flex flex-row gap-3'>
                     <div>
                         <Image className='max-w-[45px] max-h-[45px] rounded-full' alt='' width={500} height={500} src={'/avatar-.jpg'} />
                     </div>

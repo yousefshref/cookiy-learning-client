@@ -28,37 +28,40 @@ const page = () => {
             <Header />
             <br />
             <div className='px-5'>
+                {
+                    course[0]?.review ? <div className='w-fit mx-auto'><Rating dir='ltr' readOnly defaultValue={course[0]?.review} /></div> : null
+                }
                 <div className='container__1000'>
                     <div className='video bg-black md:max-w-[700px] md:h-[500px] h-[100%] w-[100%] mx-auto'>
                         video
                     </div>
                 </div>
                 <br />
-                <div className='container__1000 text-end flex flex-col gap-3'>
+                <div className='container__1000 text-start flex flex-col gap-3'>
                     <strong>التقيمات</strong>
                     <hr />
                     {
                         courseContext?.reviews?.find((x) => x?.student == authContext?.user?.user_details?.id) ? (
                             <div className='create_review'>
-                                <div className='flex flex-col gap-2 text-end'>
+                                <div className='flex flex-col gap-2 text-start'>
                                     <strong>عدل علي تعليقك</strong>
-                                    <div className='w-fit ms-auto my-auto'>
-                                        <Rating value={courseContext?.review == 0 ? courseContext?.reviews?.find((x) => x?.student == authContext?.user?.user_details?.id)?.review : courseContext?.review} onChange={(e) => courseContext?.setReview(e.target.value)} />
+                                    <div className='w-fit my-auto me-auto'>
+                                        <Rating dir='ltr' value={courseContext?.review == 0 ? courseContext?.reviews?.find((x) => x?.student == authContext?.user?.user_details?.id)?.review : courseContext?.review} onChange={(e) => courseContext?.setReview(e.target.value)} />
                                     </div>
                                     <textarea defaultValue={courseContext?.reviews?.find((x) => x?.student == authContext?.user?.user_details?.id)?.comment} className='h-[100px]' onChange={(e) => courseContext?.setComment(e.target.value)} />
-                                    <div className='ms-auto'>
+                                    <div className='me-auto'>
                                         <button onClick={() => courseContext?.updateCourseReview(path.split('/')[2])} className='px-2 hover:px-5'>ارسل</button>
                                     </div>
                                 </div>
                             </div>
                         ) : <div className='create_review'>
-                            <div className='flex flex-col gap-2 text-end'>
+                            <div className='flex flex-col gap-2 text-start'>
                                 <strong>اكتب تعليق او سؤال</strong>
-                                <div className='w-fit ms-auto my-auto'>
-                                    <Rating value={courseContext?.review} onChange={(e) => courseContext?.setReview(e.target.value)} />
+                                <div className='w-fit me-auto my-auto'>
+                                    <Rating dir='ltr' value={courseContext?.review} onChange={(e) => courseContext?.setReview(e.target.value)} />
                                 </div>
                                 <textarea className='h-[100px]' onChange={(e) => courseContext?.setComment(e.target.value)} />
-                                <div className='ms-auto'>
+                                <div className='me-auto'>
                                     <button onClick={() => courseContext?.createCourseReview(path.split('/')[2])} className='px-2 hover:px-5'>ارسل</button>
                                 </div>
                             </div>

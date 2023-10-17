@@ -4,8 +4,9 @@ const nextConfig = {
         domains: [
             "127.0.0.1",
             "i.ibb.co",
-            "https://cookiylearning.pythonanywhere.com/"
-        ]
+            "cookiylearning.pythonanywhere.com"
+        ],
+        unoptimized:true
     }
 }
 

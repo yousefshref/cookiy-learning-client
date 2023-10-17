@@ -11,7 +11,7 @@ const page = () => {
       <Header />
       <br />
       <div className='px-3'>
-        <div className='head max-w-[100%] md:max-w-[800px] mx-auto bg-white p-2 px-5 rounded-md shadow-lg flex flex-row-reverse justify-between'>
+        <div className='head max-w-[100%] md:max-w-[800px] mx-auto bg-white p-2 px-5 rounded-md shadow-lg flex flex-row justify-between'>
           <strong>جميع المحفوظة</strong>
           <button onClick={() => courseContext?.deleteAllFav()} className='bg-red-600 text-white px-3'>حذف الجميع</button>
         </div>

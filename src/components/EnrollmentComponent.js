@@ -6,7 +6,7 @@ import { server } from '../../server'
 const EnrollmentComponent = ({ e }) => {
     return (
         <div>
-            <Link href={`/teacher/${e?.teacher_details?.id}`} className='flex flex-row-reverse gap-3 mb-3 hover:border-sky-400 transition-all hover:pe-5 hover:rounded-lg p-1'>
+            <Link href={`/teacher/${e?.teacher_details?.id}`} className='flex flex-row gap-3 mb-3 hover:border-sky-400 transition-all hover:pe-5 hover:rounded-lg p-1'>
                 {/* <div className='w-fit'>
                     <Image className='max-w-[40px] max-h-[40px] rounded-full' alt='' width={500} height={500} src={e?.teacher_details?.image ? server+e?.teacher_details?.image : '/avatar-.jpg'} />
                 </div> */}
@@ -14,14 +14,14 @@ const EnrollmentComponent = ({ e }) => {
                     <p>{e?.teacher_details?.username}</p>
                 </div>
             </Link>
-            <div className='enrollment flex-row-reverse flex justify-between p-2 border border-black rounded-md'>
-                <div className='flex-row-reverse flex gap-3'>
+            <div className='enrollment flex-row flex justify-between p-2 border border-black rounded-md'>
+                <div className='flex-row flex gap-3'>
                     <div className='w-fit'>
                         <Image className='max-w-[130px] max-h-[130px] rounded-md' alt='' width={500} height={500} src={server+e?.course_details?.thumbnail} />
                     </div>
-                    <div className='text-end my-auto'>
+                    <div className='text-start my-auto flex flex-col gap-1'>
                         <strong>{e?.course_details?.title}</strong>
-                        <p>{e?.course_details?.description?.length > 50 ? "..."+e?.course_details?.description?.slice(0, 50) : e?.course_details?.description}</p>
+                        <small>{e?.course_details?.description?.length > 50 ? e?.course_details?.description?.slice(0, 50)+"..." : e?.course_details?.description}</small>
                     </div>
                 </div>
                 <div className='mt-auto'>

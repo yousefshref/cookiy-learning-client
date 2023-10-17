@@ -29,7 +29,11 @@ const AuthContext = ({children}) => {
       utlitsContext?.setloading(false)
       if(e.data.success){
         document.cookie = `email=${email}`
-        window.location.pathname = '/profile'
+        if(type == 'False'){
+          window.location.pathname = '/search'
+        }else{
+          window.location.pathname = '/profile'
+        }
       }
       else{
         setError(e.data)
@@ -111,6 +115,11 @@ const AuthContext = ({children}) => {
 
   }
 
+
+  // check login
+  useEffect(() => {
+    location.pathname == '/' | location.pathname == '/login' | location.pathname == '/register' ? null : !document.cookie.split('email=')[1] ? location.pathname = '/' : null
+  }, [])
 
 
 

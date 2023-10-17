@@ -45,11 +45,11 @@ const page = () => {
     <div>
         <Header />
         <br />
-        <div className='text-end px-5'>
+        <div className='text-start px-5'>
             <div className='w-fit mx-auto'>
                 <Rating readOnly />
             </div>
-            <div className='head flex flex-row-reverse gap-3 bg-white rounded-md p-3 shadow-lg'>
+            <div className='head flex flex-row gap-3 bg-white rounded-md p-3 shadow-lg'>
                 <div className='my-auto'>
                     <Image className='w-[100px] h-[100px] rounded-full' alt='' width={500} height={500} src={teacher?.image ? server+teacher?.image : '/avatar-.jpg'} />
                 </div>
@@ -60,7 +60,7 @@ const page = () => {
             </div>
             <br />
             <div className='courses flex flex-col gap-4 bg-white rounded-md p-3 shadow-lg max-w-[100%] md:max-w-[900px] mx-auto'>
-                <div className='flex flex-row-reverse justify-between'>
+                <div className='flex flex-row justify-between'>
                     <strong>أخر دروسة</strong>
                     <button className='px-2 bg-black hover:bg-white hover:text-black text-white hover:px-6'>
                         <Link href={`/teacher/all/${teacher?.user}`}>
@@ -108,10 +108,10 @@ const page = () => {
                 <strong>معلومات عن المدرس</strong>
                 <hr />
                 <ul>
-                    <li>التخصص: {teacher?.specialty_name?.name} •</li>
-                    <li><strong className='text-green-600'>EGP {teacher?.subscribation_cost}</strong>  :سعر الاشتراك الشهري •</li>
+                    <li className='text-lg'>• التخصص: {teacher?.specialty_name?.name}</li>
+                    <li className='text-lg'>• سعر الاشتراك الشهري: <strong className='text-green-600'>EGP {teacher?.subscribation_cost}</strong></li>
                 </ul>
-                <button className='w-full'>! أشترك لتشاهد جميع الكورسات مجانا وتتابع الجديد</button>
+                <button className='w-full'>أشترك لتشاهد جميع الكورسات مجانا وتتابع الجديد !</button>
             </div>
         </div>
     </div>

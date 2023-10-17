@@ -5,16 +5,46 @@
 body{
     overflow-x: hidden;
     background: rgb(235, 235, 235);
+    /* height: 500vh; */
+    direction: rtl;
+    
 }
+
+@font-face {
+    font-family: JanaFont;
+    src: url('../../public/Janna\ LT\ Bold.ttf');
+}
+@font-face {
+    font-family: learningFont;
+    src: url('../../public/LearningToTrust.ttf');
+}
+  
+h1, h2, h3, h4, ul {
+    font-family: JanaFont;
+    color: rgb(30, 30, 30);
+    font-size: 35px;
+}
+
+p, label, ul, strong{
+    font-family: JanaFont;
+}
+
+.header_logo{
+    font-family: learningFont;
+
+}
+
+
 
 input, select, textarea{
     padding: 5px;
     border-radius: 7px;
     border: solid 0.2px;
-    text-align: end;
+    text-align: start;
 }
 
 button{
+    font-family: JanaFont;
     background-color: rgb(32, 235, 123);
     width: fit-content;
     border-radius: 5px;
@@ -33,4 +63,7 @@ button:hover{
 }
 .container__1000{
     @apply bg-white md:max-w-[1000px] max-w-[100%] p-2 rounded-md shadow-lg mx-auto
+}
+.container__700{
+    @apply bg-white md:max-w-[700px] max-w-[100%] p-2 rounded-md shadow-lg mx-auto
 }

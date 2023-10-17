@@ -16,34 +16,34 @@ const page = () => {
                 <h1 className='text-center text-3xl font-bold'>انشئ كورس جديد</h1>
                 <hr className='my-5' />
                 <form className='flex flex-col gap-5'>
-                    <div className='flex flex-col gap-2'>
-                        <label>الاسم</label>
+                    <div className=' flex flex-col gap-2 text-start'>
+                        <label>العنوان</label>
                         <input onChange={(e) => courseContext?.settitle(e.target.value)} type='text' />
                         {
                             courseContext?.error?.title ? <small className='text-red-600'>{courseContext?.error?.title}</small> : null
                         }
                     </div>
-                    <div className='flex flex-col gap-2'>
+                    <div className=' flex flex-col gap-2 text-start'>
                         <label>الوصف</label>
                         <textarea onChange={(e) => courseContext?.setdescription(e.target.value)} className='h-[200px]' />
                         {
                             courseContext?.error?.description ? <small className='text-red-600'>{courseContext?.error?.description}</small> : null
                         }
                     </div>
-                    <div className='flex flex-col gap-2'>
+                    <div className=' flex flex-col gap-2 text-start'>
                         <label>السعر</label>
                         <input onChange={(e) => courseContext?.setprice(e.target.value)} />
                         {
                             courseContext?.error?.price ? <small className='text-red-600'>{courseContext?.error?.price}</small> : null
                         }
                     </div>
-                    <div className='flex flex-col gap-2'>
-                        <label className='flex flex-row-reverse gap-3 flex-wrap'>
+                    <div className=' flex flex-col gap-2 text-start'>
+                        <label className='flex flex-row gap-3 flex-wrap'>
                             <div>
                                 صورة مصغرة
                             </div>
                             <div className='text-red-700'>
-                                ( 1920 x 1080 يفضل ان تكون )
+                                ( يفضل ان تكون 500 * 500 )
                             </div>
                         </label>
                         <input onChange={(e) => courseContext?.setthumbnail(e.target.files[0])} type='file' />
@@ -51,7 +51,7 @@ const page = () => {
                             courseContext?.error?.thumbnail ? <small className='text-red-600'>{courseContext?.error?.thumbnail}</small> : null
                         }
                     </div>
-                    <div className='flex flex-col gap-2'>
+                    <div className=' flex flex-col gap-2 text-start'>
                         <label>رابط الفديو</label>
                         <input onChange={(e) => courseContext?.setvideourl(e.target.value)} type='url' />
                         {
@@ -68,7 +68,7 @@ const page = () => {
                         optionalOpen ? (
                             <div className='optionals flex flex-col gap-5'>
 
-                                <div className='flex flex-col gap-2'>
+                                <div className=' flex flex-col gap-2 text-start'>
                                     <label>ضع رابط فديو تعريفي عن الكورس يجذب الطلاب</label>
                                     <input onChange={(e) => courseContext?.setvideourl(e.target.value)} type='url' />
                                 </div>
@@ -76,8 +76,8 @@ const page = () => {
                             </div>
                         ):null
                     }
-                    <div>
-                        <button onClick={(e) => courseContext?.create_course(e)}>
+                    <div className='text-start'>
+                        <button className='p-1 hover:px-2' onClick={(e) => courseContext?.create_course(e)}>
                             انشئ الان
                         </button>
                     </div>
