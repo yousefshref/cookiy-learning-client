@@ -23,6 +23,7 @@ const page = () => {
     useEffect(() => {
         getCourse()
     }, [])
+    const test = ''
     return (
         <div className='mb-10'>
             <Header />
