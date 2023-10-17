@@ -17,12 +17,12 @@ const Header = () => {
     <div className='px-4 py-1 shadow-md flex flex-row-reverse justify-between bg-white'>
       {
         path == '/' ? (
-          <div className='my-auto flex flex-row-reverse gap-2'>
+          <div className='my-auto flex flex-row gap-2'>
             <div className='my-auto'>
               <Image alt='cookiy logo' width={30} height={30} src={'/cookiy_logo.png'} />
             </div>
             <div className='my-auto'>
-              <p className='header_logo text-sm'>cookiy - learning</p>
+              <p className='header_logo text-xs'>cookiy - learning</p>
             </div>
           </div>
         ) : (
